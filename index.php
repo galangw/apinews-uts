@@ -44,7 +44,7 @@ $data = json_decode($res, true); ?>
         <h1>Berita Terbaru</h1>
     </center>
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <?php
             $i = 0;
