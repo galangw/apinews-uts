@@ -57,7 +57,7 @@ $data = json_decode($res, true); ?>
                         ?>
                         <div class="card-body">
                             <h5 class="card-title"><?= $value['title'] ?></h5>
-                            <p class="card-text"><?= $value['contentSnippet'] ?></p>
+                            <p class="card-text"><?= substr($value['contentSnippet'], 0, 133) . "..." ?></p>
                             <a href="<?= $value['link'] ?>" class="btn btn-primary">Selengkapnya</a>
                         </div>
                     </div>
