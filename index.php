@@ -36,7 +36,7 @@ $data = json_decode($res, true); ?>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>News UTS API Kelompok 3</title>
 </head>
 
 <body>
@@ -44,12 +44,12 @@ $data = json_decode($res, true); ?>
         <h1>Berita Terbaru</h1>
     </center>
 
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <?php
             $i = 0;
             foreach ($data['data'] as $key => $value) if ($i < 30) { ?>
-                <div class="col-md-4">
+                <div class="col-4">
                     <div class="card" style="width: 25rem;">
                         <?php foreach ($value['image'] as $item) { ?>
                             <img src="<?= $item ?>" class="card-img-top" alt="...">
