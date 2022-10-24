@@ -45,7 +45,7 @@ $data = json_decode($res, true); ?>
     </center>
 
     <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
             <?php
             $i = 0;
             foreach ($data['data'] as $key => $value) if ($i < 30) { ?>
