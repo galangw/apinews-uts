@@ -50,7 +50,7 @@ $data = json_decode($res, true); ?>
             $i = 0;
             foreach ($data['data'] as $key => $value) if ($i < 30) { ?>
                 <div class="col-sm-4">
-                    <div class="card" style="">
+                    <div class="card" style="padding-bottom: 10px;">
                         <?php foreach ($value['image'] as $item) { ?>
                             <img src="<?= $item ?>" class="card-img-top" alt="...">
                         <?php }
