@@ -10,21 +10,12 @@ kelompok 3
 */
 $url = "https://berita-indo-api.vercel.app/v1/cnn-news";
 
-$option = [
-    CURLOPT_CUSTOMREQUEST => "GET",
-    CURLOPT_HTTPHEADER => [
-        'Accept: application∕json',
-        'Content-Type: application/json; charset=utf8',
-
-    ],
-    CURLOPT_RETURNTRANSFER => 1,
-
-];
 $ch = curl_init($url);
-curl_setopt_array($ch, $option);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $res = curl_exec($ch);
 curl_close($ch);
-$data = json_decode($res, true); ?>
+$data = json_decode($res, true);
+?>
 <!doctype html>
 <html lang="en">
 
@@ -40,23 +31,17 @@ $data = json_decode($res, true); ?>
 </head>
 
 <body>
-    <center>
-        <h1>Berita Terbaru</h1>
-    </center>
-
+    <h1 class="text-center">Berita CNN</h1>
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row">
             <?php
             $i = 0;
             foreach ($data['data'] as $key => $value) if ($i < 30) { ?>
-                <div class="col-sm-4">
-                    <div class="card my-2" style="">
-                        <?php foreach ($value['image'] as $item) { ?>
-                            <img src="<?= $item ?>" class="card-img-top" alt="...">
-                        <?php }
-                        ?>
+                <div class="col-sm-4 col-lg-4">
+                    <div class="card my-3">
+                        <img src="<?= $value['image']['large'] ?>" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title"><?= $value['title'] ?></h5>
+                            <h5 class="card-title"><a href="<?= $value['link'] ?>" style="text-decoration: none;"><?= $value['title'] ?></a></h5>
                             <p class="card-text"><?= substr($value['contentSnippet'], 0, 133) . "..." ?></p>
                             <a href="<?= $value['link'] ?>" class="btn btn-primary">Selengkapnya</a>
                         </div>
@@ -67,7 +52,6 @@ $data = json_decode($res, true); ?>
             ?>
         </div>
     </div>
-     
 </body>
 
 </html>
